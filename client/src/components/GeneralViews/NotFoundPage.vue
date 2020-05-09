@@ -28,16 +28,14 @@
   </div>
 </template>
 <script>
-  import {Card, Checkbox, Button, InfoSection} from 'src/components/UIComponents';
+  import {  Button, InfoSection} from 'src/components/UIComponents';
   import AppNavbar from './../Dashboard/Views/Pages/Layout/AppNavbar'
   import AppFooter from './../Dashboard/Views/Pages/Layout/AppFooter'
   export default {
     components: {
-      Card,
       AppNavbar,
       AppFooter,
       InfoSection,
-      [Checkbox.name]: Checkbox,
       [Button.name]: Button
     },
     methods: {
