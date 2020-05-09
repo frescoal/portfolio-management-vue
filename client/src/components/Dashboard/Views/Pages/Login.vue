@@ -12,7 +12,7 @@
                   <h3 slot="header" class="header text-center">Login</h3>
 
                   <fg-input v-model="form.username" addon-left-icon="nc-icon nc-single-02"
-                            placeholder="First Name..."></fg-input>
+                            placeholder="Email..."></fg-input>
 
                   <fg-input v-model="form.password" addon-left-icon="nc-icon nc-key-25" placeholder="Password"
                             type="password"></fg-input>
@@ -30,7 +30,7 @@
           </div>
         </div>
         <app-footer></app-footer>
-        <div class="full-page-background" style="background-image: url(static/img/background/background-2.jpg) "></div>
+        <div class="full-page-background" :style="{backgroundImage: `url(${backgroundImage}`}"></div>
       </div>
     </div>
   </div>
@@ -52,6 +52,16 @@
       toggleNavbar() {
         document.body.classList.toggle('nav-open')
       },
+      getBackground() {
+        const backgrounds = [
+          'https://images.pexels.com/photos/733174/pexels-photo-733174.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+          'https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+          'https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+          'https://images.pexels.com/photos/1040473/pexels-photo-1040473.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+        ];
+
+        return backgrounds[Math.floor(Math.random() * backgrounds.length)];
+      },
       closeMenu() {
         document.body.classList.remove('nav-open')
         document.body.classList.remove('off-canvas-sidebar')
@@ -62,6 +72,7 @@
     },
     data() {
       return {
+        backgroundImage: this.getBackground(),
         form: {
           username: '',
           password: ''
