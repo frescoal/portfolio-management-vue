@@ -28,9 +28,9 @@
   </div>
 </template>
 <script>
-  import {  Button, InfoSection} from 'src/components/UIComponents';
-  import AppNavbar from './../Dashboard/Views/Pages/Layout/AppNavbar'
-  import AppFooter from './../Dashboard/Views/Pages/Layout/AppFooter'
+  import { Button, InfoSection} from '../components/UIComponents';
+  import AppNavbar from '../components/Dashboard/Views/Pages/Layout/AppNavbar'
+  import AppFooter from '../components/Dashboard/Views/Pages/Layout/AppFooter'
   export default {
     components: {
       AppNavbar,

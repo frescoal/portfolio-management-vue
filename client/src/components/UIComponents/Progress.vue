@@ -8,9 +8,9 @@
         <slot></slot>
       </span>
     </div>
-    <div v-else v-for="progress in values" class="progress-bar" :class="`progress-bar-${progress.type}`"
+    <div v-else v-for="progress in values" class="progress-bar" :key="progress.value" :class="`progress-bar-${progress.type}`"
          :style="`width: ${progress.value}%;`">
-      <span class="sr-only"></span>
+      <span class="sr-only" ></span>
     </div>
   </div>
 </template>

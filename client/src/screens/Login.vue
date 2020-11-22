@@ -11,19 +11,16 @@
                 <card type="login">
                   <h3 slot="header" class="header text-center">Login</h3>
 
-                  <fg-input v-model="form.username" addon-left-icon="nc-icon nc-single-02"
-                            placeholder="Email..."></fg-input>
+                  <fg-input v-model="form.username" addon-left-icon="nc-icon nc-single-02" placeholder="Email..."></fg-input>
 
-                  <fg-input v-model="form.password" addon-left-icon="nc-icon nc-key-25" placeholder="Password"
-                            type="password"></fg-input>
-
+                  <fg-input v-model="form.password" addon-left-icon="nc-icon nc-key-25" placeholder="Password" type="password"></fg-input>
                   <br>
 
                   <p-checkbox>
-                    Subscribe to newsletter
+                    Remember me !
                   </p-checkbox>
 
-                  <p-button native-type="submit" slot="footer" type="warning" round block class="mb-3">Get started</p-button>
+                  <p-button native-type="submit" slot="footer" type="success" round block class="mb-3">Let's get in !</p-button>
                 </card>
               </form>
             </div>
@@ -36,9 +33,9 @@
   </div>
 </template>
 <script>
-  import { Card, Checkbox, Button } from 'src/components/UIComponents';
-  import AppNavbar from './Layout/AppNavbar'
-  import AppFooter from './Layout/AppFooter'
+  import { Card, Checkbox, Button } from '../components/UIComponents';
+  import AppNavbar from '../components/Dashboard/Views/Pages/Layout/AppNavbar'
+  import AppFooter from '../components/Dashboard/Views/Pages/Layout/AppFooter'
 
   export default {
     components: {
@@ -67,16 +64,21 @@
         document.body.classList.remove('off-canvas-sidebar')
       },
       login() {
-        // handle login here
+        const { username, password } = this.form;
+        const { dispatch } = this.$store;
+          if (username && password) {
+            dispatch('authentication/login', { username, password });
+          }
       }
     },
     data() {
       return {
         backgroundImage: this.getBackground(),
         form: {
-          username: '',
-          password: ''
-        }
+          username: process.env.NODE_ENV === 'production' ? '' : 'alain.fresco@gmail.com',
+          password: process.env.NODE_ENV === 'production' ? '' : '123456'
+        },
+        loading: false
       }
     },
     beforeDestroy() {
