@@ -10,17 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_22_134628) do
+ActiveRecord::Schema.define(version: 2020_11_22_151901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
     t.string "name"
+    t.string "description"
     t.integer "number"
+    t.integer "category"
     t.integer "plutus_account_id"
+    t.integer "meta_account_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["plutus_account_id", "meta_account_id"], name: "index_accounts_on_plutus_account_id_and_meta_account_id"
+  end
+
+  create_table "meta_accounts", force: :cascade do |t|
+    t.string "name"
+    t.integer "parent_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["parent_id"], name: "index_meta_accounts_on_parent_id"
   end
 
   create_table "plutus_accounts", id: :serial, force: :cascade do |t|
