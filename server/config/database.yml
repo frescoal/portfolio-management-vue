@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: netos_development
+  pool: 5
+  username: root
+  password: root
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: netos_test
+  pool: 5
+  username: root
+  password: root
+
+production:
+  url:
