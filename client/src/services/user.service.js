@@ -1,11 +1,6 @@
 import {host} from '../config/constants';
 
-export const userService = {
-  login,
-  logout,
-};
-
-function login(username, password) {
+const login = (username, password) => {
   const requestOptions = {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -31,12 +26,22 @@ function login(username, password) {
       });
 }
 
-function logout() {
+const logout = () => {
   // remove user from local storage to log user out
   localStorage.removeItem('authToken');
 }
 
-function handleResponse(response) {
+const loggedIn = () => {
+  const authToken = localStorage.getItem('authToken');
+  if(authToken === null) return false;
+
+  const {uid, expiry} = JSON.parse(authToken);
+  if(expiry * 1000 < Date.now()) logout();
+
+  return uid != null;
+}
+
+const  handleResponse = (response) => {
   if (!response.ok) {
     if (response.status === 401) {
       // auto logout if 401 response returned from api
@@ -48,3 +53,10 @@ function handleResponse(response) {
     return Promise.reject(error);
   }
 }
+
+export const userService = {
+  login,
+  logout,
+  loggedIn,
+};
+
