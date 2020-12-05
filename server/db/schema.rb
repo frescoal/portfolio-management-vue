@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(version: 2020_11_22_151901) do
   create_table "meta_accounts", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["parent_id"], name: "index_meta_accounts_on_parent_id"
+    t.index ["user_id"], name: "index_meta_accounts_on_user_id"
   end
 
   create_table "plutus_accounts", id: :serial, force: :cascade do |t|
