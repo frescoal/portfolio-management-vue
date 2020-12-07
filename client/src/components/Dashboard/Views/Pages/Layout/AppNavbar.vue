@@ -14,7 +14,7 @@
           <i class="nc-icon nc-book-bookmark"></i> Register
         </a>
       </router-link>
-      <router-link to="/login" class="nav-item" tag="li">
+        <router-link to="/login" class="nav-item" tag="li">
         <a class="nav-link">
           <i class="nc-icon nc-tap-01"></i> Login
         </a>
@@ -25,9 +25,9 @@
           <i class="nc-icon nc-satisfied"></i> User
         </a>
       </router-link>
-      <router-link to="/lock" class="nav-item" tag="li">
+      <router-link to="/login" class="nav-item" tag="li">
         <a class="nav-link">
-          <i class="nc-icon nc-key-25"></i> Lock
+          <i class="nc-icon nc-key-25"></i> Logout
         </a>
       </router-link>
     </template>

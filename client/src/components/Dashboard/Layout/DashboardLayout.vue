@@ -8,9 +8,11 @@
     <div class="main-panel">
       <top-navbar></top-navbar>
 
-      <dashboard-content @click.native="toggleSidebar">
-
-      </dashboard-content>
+      <div class="content">
+        <transition name="fade" mode="out-in">
+          <router-view></router-view>
+        </transition>
+      </div>
       <content-footer></content-footer>
     </div>
   </div>
@@ -21,14 +23,12 @@
 <script>
   import TopNavbar from './TopNavbar.vue'
   import ContentFooter from './ContentFooter.vue'
-  import DashboardContent from './Content.vue'
   import UserMenu from 'src/components/UIComponents/SidebarPlugin/UserMenu.vue'
 
   export default {
     components: {
       TopNavbar,
       ContentFooter,
-      DashboardContent,
       UserMenu,
     },
     methods: {

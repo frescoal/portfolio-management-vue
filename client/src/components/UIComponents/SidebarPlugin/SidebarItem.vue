@@ -1,7 +1,7 @@
 <template>
   <component :is="baseComponent"
              :to="link.path ? link.path : '/'"
-             :class="{active: isActive}"
+             :class="{}"
              tag="li">
     <a v-if="isMenu"
        data-toggle="collapse"
@@ -90,12 +90,13 @@
       },
       isActive() {
         if (this.$route) {
-          let matchingRoute = this.children
-            .find((c) => this.$route.path.startsWith(c.link.path))
+          let matchingRoute = this.children.find((c) => this.$route.path.startsWith(c.link.path))
           if (matchingRoute !== undefined) {
+            console.log("ici true ")
             return true
           }
         }
+        console.log("ici false")
         return false
       }
     },
@@ -119,11 +120,6 @@
       collapseMenu() {
         this.collapsed = !this.collapsed
       },
-      onItemClick() {
-        if(this.autoClose) {
-          this.$sidebar.showSidebar = false;
-        }
-      }
     },
     mounted() {
       if (this.addLink) {
