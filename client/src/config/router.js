@@ -1,28 +1,35 @@
 import VueRouter from "vue-router";
-import DashboardLayout from '../components/Dashboard/Layout/DashboardLayout.vue'
 import NotFound from '../screens/NotFoundPage.vue'
 import Login from "../screens/Login";
+import AccountsIndex from "../screens/Accounts/AccountsIndex";
 import {userService} from "@/services";
+import Dashboard from "@/screens/Dashboard";
 
 const routes = [
   {
-    path: '/',
-    component: DashboardLayout,
-  },
-  {
-    path: '/admin',
-    component: DashboardLayout,
+    path: '/dashboard',
+    component: Dashboard,
+    alias: '/'
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    meta:{
+      layout: Login
+    }
+  },
+  {
+    path: '/accounts',
+    name: 'Accounts',
+    component: AccountsIndex
   },
   {path: '*', component: NotFound}
 ];
 
 const router = new VueRouter({
   routes, // short for routes: routes
+  mode: 'history',
   linkActiveClass: 'active',
   scrollBehavior: (to) => {
     if (to.hash) {

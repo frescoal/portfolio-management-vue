@@ -18,7 +18,7 @@ export const authentication = {
               authToken => {
                 console.log(authToken)
                 commit('loginSuccess', authToken);
-                router.push('/');
+                router.push('/dashboard');
               },
               error => {
                 commit('loginFailure', error);
