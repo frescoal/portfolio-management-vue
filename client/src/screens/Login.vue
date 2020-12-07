@@ -1,6 +1,5 @@
 <template>
   <div class="login-page">
-    <app-navbar></app-navbar>
     <div class="wrapper wrapper-full-page">
       <div class="full-page login-page section-image">
         <!--   you can change the color of the filter page using: data-color="blue | azure | green | orange | red | purple" -->
@@ -34,13 +33,12 @@
 </template>
 <script>
   import { Card, Checkbox, Button } from '../components/UIComponents';
-  import AppNavbar from '../components/Dashboard/Views/Pages/Layout/AppNavbar'
   import AppFooter from '../components/Dashboard/Views/Pages/Layout/AppFooter'
+  import { userService } from "@/services";
 
   export default {
     components: {
       Card,
-      AppNavbar,
       AppFooter,
       [Checkbox.name]: Checkbox,
       [Button.name]: Button
@@ -80,6 +78,9 @@
         },
         loading: false
       }
+    },
+    beforeCreate(){
+      userService.logout();
     },
     beforeDestroy() {
       this.closeMenu()
