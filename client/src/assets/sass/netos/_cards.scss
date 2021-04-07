@@ -1,0 +1,14 @@
+#netos {
+  .card-header{
+    background-color: $black-bg;
+    color: $smoke-bg;
+    .card-title{
+      margin: 10px 0;
+    }
+  }
+  .card-body{
+    a[data-toggle=collapse] i {
+      color: $orange-color;
+    }
+  }
+}

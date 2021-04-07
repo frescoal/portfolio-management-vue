@@ -8,7 +8,7 @@
     <div class="main-panel">
       <top-navbar></top-navbar>
 
-      <div class="content">
+      <div class="content" id="netos">
         <transition name="fade" mode="out-in">
           <router-view></router-view>
         </transition>

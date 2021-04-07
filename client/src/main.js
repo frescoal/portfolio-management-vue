@@ -20,6 +20,7 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/sass/paper-dashboard.scss'
 import './assets/sass/demo.scss'
+import './assets/sass/netos.scss'
 import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 

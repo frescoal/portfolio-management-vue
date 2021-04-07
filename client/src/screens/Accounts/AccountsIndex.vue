@@ -1,39 +1,42 @@
 <template>
-  <collapse>
-    <collapse-item
-        v-for="(metaAccount, index) in this.metaAccounts"
-        class="style"
-        :key="index"
-        :title="metaAccount.name" :name="index">
-      {{ $log(metaAccount)}}
-        <collapse>
-          <collapse-item
-              v-for="(metaAccount, index) in metaAccount.meta_accounts"
-              class="style"
-              :key="index"
-              :title="metaAccount.name" :name="index">
-          </collapse-item>
-        </collapse>
-    </collapse-item>
- </collapse>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title">Mes Comptes</h5>
+        </div>
+        <div class="card-body card-collapse" id="accounts">
+          <meta-account-list-item
+              v-for="(metaAccount, index) in topLevelMetaAccounts"
+              v-bind:key="index"
+              :metaAccount="metaAccount"
+              :metaAccounts="metaAccounts"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-import { Collapse, CollapseItem } from '../../components/UIComponents'
-import { getMetaAccount } from "@/services/account.services";
+import {MetaAccountListItem} from '../../components/Accounts'
+import {getMetaAccount} from "@/services/account.services";
 
 export default {
   data() {
     return {
       loading: true,
-      metaAccounts: []
+      metaAccounts: [],
+      topLevelMetaAccounts: []
     };
   },
   mounted() {
-    getMetaAccount().then(response => (this.metaAccounts = response));
+    getMetaAccount().then(response => {
+      this.metaAccounts = response;
+      this.topLevelMetaAccounts = response.filter((metaAccount) => metaAccount.parent_id === null);
+    });
   },
   components: {
-    Collapse,
-    CollapseItem
+    MetaAccountListItem,
   },
   methods: {},
 

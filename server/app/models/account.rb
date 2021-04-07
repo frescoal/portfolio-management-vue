@@ -6,6 +6,12 @@ class Account < ApplicationRecord
 
   after_create :create_plutus_account
 
+  def balance
+    puts self.name
+    puts self.id
+    plutus_account.balance
+  end
+
   def create_plutus_account
     case category
     when 'asset'
