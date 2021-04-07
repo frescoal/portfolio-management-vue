@@ -3,7 +3,15 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-header">
-          <h5 class="card-title">Mes Comptes</h5>
+          <div class="separated">
+            <h5 class="card-title">Mes Comptes</h5>
+          </div>
+          <div class="separated text-right">
+            <Button type="primary" outline round>
+              <i class="fas fa-plus"></i>
+              Nouveau
+            </Button>
+          </div>
         </div>
         <div class="card-body card-collapse" id="accounts">
           <meta-account-list-item
@@ -18,8 +26,9 @@
   </div>
 </template>
 <script>
-import {MetaAccountListItem} from '../../components/Accounts'
 import {getMetaAccount} from "@/services/account.services";
+import {MetaAccountListItem} from '../../components/Accounts'
+import {Button} from '../../components/UIComponents';
 
 export default {
   data() {
@@ -37,6 +46,7 @@ export default {
   },
   components: {
     MetaAccountListItem,
+    Button
   },
   methods: {},
 

@@ -2,6 +2,10 @@
   .card-header{
     background-color: $black-bg;
     color: $smoke-bg;
+    display: flex;
+    .separated{
+      flex: 1;
+    }
     .card-title{
       margin: 10px 0;
     }
