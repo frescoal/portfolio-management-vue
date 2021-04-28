@@ -27,6 +27,7 @@ import '@fortawesome/fontawesome-free/js/all.js'
 
 import sidebarLinks from './sidebarLinks'
 import './registerServiceWorker'
+import i18n from './i18n'
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(GlobalDirectives)
@@ -46,5 +47,6 @@ new Vue({
   el: '#app',
   store,
   render: h => h(App),
+  i18n,
   router
 })

@@ -18,6 +18,7 @@ module.exports = {
       })
     ]
   },
+
   pwa: {
     name: 'Vue Paper Dashboard PRO',
     themeColor: '#66615B',
@@ -25,8 +26,18 @@ module.exports = {
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: '#66615B'
   },
+
   css: {
     // Enable CSS source maps.
     sourceMap: process.env.NODE_ENV !== 'production'
+  },
+
+  pluginOptions: {
+    i18n: {
+      locale: 'fr',
+      fallbackLocale: 'fr',
+      localeDir: 'locales',
+      enableInSFC: true
+    }
   }
 };

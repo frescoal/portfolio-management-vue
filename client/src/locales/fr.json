@@ -1,0 +1,26 @@
+{
+  "accounts": {
+    "attributes": {
+      "name": "Nom",
+      "description": "Description",
+      "category": "Description",
+      "number": "Description",
+      "parent": "Parent"
+    },
+    "categories": {
+      "asset": "Actifs",
+      "liability": "Passifs",
+      "equity": "Fonds propre",
+      "revenue": "Produits",
+      "expense": "Charges"
+    },
+    "my_accounts": "Mes comptes",
+    "new_title": "Nouveau compte"
+  },
+  "global": {
+    "new": "Nouveau",
+    "choose": "Choisisez ..."
+  },
+
+  "message": "hello i18n !!"
+}

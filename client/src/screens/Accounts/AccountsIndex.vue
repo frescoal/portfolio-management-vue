@@ -4,13 +4,17 @@
       <div class="card">
         <div class="card-header">
           <div class="separated">
-            <h5 class="card-title">Mes Comptes</h5>
+            <h5 class="card-title">{{ $t('accounts.my_accounts') }}</h5>
           </div>
           <div class="separated text-right">
+            <router-link
+                to="/accounts/new"
+            >
             <Button type="primary" outline round>
               <i class="fas fa-plus"></i>
-              Nouveau
+              {{ $t('global.new') }}
             </Button>
+            </router-link>
           </div>
         </div>
         <div class="card-body card-collapse" id="accounts">

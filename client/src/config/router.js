@@ -2,6 +2,7 @@ import VueRouter from "vue-router";
 import NotFound from '../screens/NotFoundPage.vue'
 import Login from "../screens/Login";
 import AccountsIndex from "../screens/Accounts/AccountsIndex";
+import AccountNew from "../screens/Accounts/AccountNew";
 import {userService} from "@/services";
 import Dashboard from "@/screens/Dashboard";
 
@@ -24,11 +25,16 @@ const routes = [
     name: 'Accounts',
     component: AccountsIndex
   },
+  {
+    path: '/accounts/new',
+    name: 'New accounts',
+    component: AccountNew
+  },
   {path: '*', component: NotFound}
 ];
 
 const router = new VueRouter({
-  routes, // short for routes: routes
+  routes,
   mode: 'history',
   linkActiveClass: 'active',
   scrollBehavior: (to) => {
